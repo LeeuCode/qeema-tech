@@ -5,7 +5,6 @@ add_action('tgmpa_register', 'Qeema_register_required_plugins');
 
 function Qeema_register_required_plugins()
 {
-
 	/**
 	 * Array of plugin arrays. Required keys are name and slug.
 	 * If the source is NOT from the .org repo, then source is also required.
@@ -15,6 +14,13 @@ function Qeema_register_required_plugins()
 		array(
 			'name'               => 'Elementor',
 			'slug'               => 'elementor',
+			'required'           => true, // this plugin is required
+			'force_activation'   => true, // Force activation because we need Advanced Custom Fields,
+			'force_deactivation' => true, // deactivate this plugin when the user switches to another theme
+		),
+		array(
+			'name'               => 'Advanced Custom Fields',
+			'slug'               => 'advanced-custom-fields',
 			'required'           => true, // this plugin is required
 			'force_activation'   => true, // Force activation because we need Advanced Custom Fields,
 			'force_deactivation' => true, // deactivate this plugin when the user switches to another theme
